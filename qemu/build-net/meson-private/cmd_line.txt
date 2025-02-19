@@ -1,9 +1,0 @@
-[options]
-slirp = enabled
-werror = false
-docs = disabled
-plugins = true
-
-[properties]
-native_file = ['/home/vboxuser/Desktop/qemu/build-net/config-meson.cross']
-

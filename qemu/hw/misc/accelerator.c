@@ -135,21 +135,9 @@ static void accelerator_write(void *opaque, hwaddr addr, uint64_t value, unsigne
             uint64_t sum[(max_in_wordspackage_per_channel-1)*in_words_per_transaction+1];
             for (int j=0; j<kernel_size; j++) {
                 convolution_8_per_n_ch_in(state->input_data, state->coefficients[j], state->n_in_channels, state->sequence_length, sum);
-                /*k = 0;
-                while (k<(state->sequence_length)*output_word_bytes+1) {
+                for (int k=0; k<(state->sequence_length)*output_word_bytes+1; k++) {
                     state->output_data[j][k] = sum[k];
-                    k++;
-                }*/
-                state->output_data[0][0] = sum[0];
-                state->output_data[0][1] = sum[1];
-                state->output_data[0][2] = sum[2];
-                state->output_data[0][3] = sum[3];
-                state->output_data[0][4] = sum[4];
-                state->output_data[0][5] = sum[5];
-                state->output_data[0][6] = sum[6];
-                state->output_data[0][7] = sum[7];
-                state->output_data[0][8] = sum[8];
-                break;
+                }
             }
             state->working = 0;
             state->finished = 1;

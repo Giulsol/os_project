@@ -22,7 +22,7 @@ else
 fi
 
 if ! ${mode_sys_qemu}; then
-    export PATH="$(realpath $(dirname $(pwd)))/qemu/build-net/:${PATH}"
+    export PATH="$(realpath $(dirname $(pwd)))/qemu/build/:${PATH}"
 fi
 
 cd "${BINARIES_DIR}"
