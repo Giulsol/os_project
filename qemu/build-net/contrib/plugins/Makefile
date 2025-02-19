@@ -1,0 +1,1 @@
+/home/vboxuser/Desktop/qemu/contrib/plugins/Makefile

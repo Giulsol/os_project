@@ -1,0 +1,8 @@
+[options]
+werror = false
+docs = disabled
+plugins = true
+
+[properties]
+native_file = ['/home/vboxuser/Desktop/qemu/build-arm/config-meson.cross']
+
