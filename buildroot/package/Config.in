@@ -164,6 +164,10 @@ menu "Debugging, profiling and benchmark"
 	source "package/whetstone/Config.in"
 endmenu
 
+menu "Accelerator tools"
+	source "package/accelerator/Config.in"
+endmenu
+
 menu "Development tools"
 	source "package/avocado/Config.in"
 	source "package/bats-core/Config.in"

@@ -1,0 +1,4 @@
+config BR2_PACKAGE_ACCELERATOR
+	bool "accelerator"
+	help
+	  1D-conv accelerator
