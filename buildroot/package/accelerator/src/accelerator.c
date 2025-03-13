@@ -36,9 +36,10 @@ static long device_ioctl(struct file *file, unsigned int ioctl_num, unsigned lon
 		//write input data (depends on the number of input channels), each input word is 8 bits 
 		for (int k = 0; k < input_data.n_input_channels; k++) {
 			for (int j = 0; j < input_data.sequence_length*8; j++) {
-				iowrite64(input_data.data_in_struct[k][j], acc_base + REG_DATAIN + (j*8) + (k*8*(input_data.sequence_length + 1)*8));
+				iowrite64(input_data.data_in_struct[k][j], acc_base + REG_DATAIN + (j*8) + (k*32));
 			}
 		}
+		pr_info("First input data %llx stored in address: %llx \n", input_data.data_in_struct[0][0], acc_base + REG_DATAIN);
 		//the hw can start its computation
 		iowrite64(0x1, acc_base + REG_START);
 		while (ioread64(acc_base + REG_FINISHED) != 1) {
@@ -52,6 +53,7 @@ static long device_ioctl(struct file *file, unsigned int ioctl_num, unsigned lon
 				input_data.data_out_struct[m][n] = ioread64(acc_base + REG_DATAOUT + (n*8) + (m*8*((input_data.sequence_length*8)-8+1)));
 			}
 		}
+		pr_info("First output data %llx stored from address: %llx \n", input_data.data_out_struct[0][0], acc_base + REG_DATAOUT);
 
 		if (copy_to_user((struct inputstruct *)ioctl_param, &input_data, sizeof(input_data)) != 0) {
 			return -1;

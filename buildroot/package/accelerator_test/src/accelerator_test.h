@@ -19,6 +19,7 @@
 #define SEQ_LENGTH 0x4960 //how many words_packages (1 package = 64 bits = 8 words) for each channel
 
 #define ACC_REG_SIZE 0x5000
+#define MAX_SEQ_LENGTH 4
 
 struct inputstruct {
     int64_t n_input_channels;
