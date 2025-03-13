@@ -166,6 +166,7 @@ endmenu
 
 menu "Accelerator tools"
 	source "package/accelerator/Config.in"
+	source "package/accelerator_test/Config.in"
 endmenu
 
 menu "Development tools"

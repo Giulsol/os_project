@@ -1,0 +1,4 @@
+config BR2_PACKAGE_ACCELERATOR_TEST
+	bool "accelerator_test"
+	help
+	  1D-conv accelerator test
