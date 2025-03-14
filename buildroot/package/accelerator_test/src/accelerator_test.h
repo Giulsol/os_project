@@ -19,14 +19,15 @@
 #define SEQ_LENGTH 0x4960 //how many words_packages (1 package = 64 bits = 8 words) for each channel
 
 #define ACC_REG_SIZE 0x5000
+
 #define MAX_SEQ_LENGTH 4
 
-struct inputstruct {
+struct __attribute__((aligned(8))) inputstruct {
     int64_t n_input_channels;
     int64_t sequence_length;
     int64_t coefficients[8];
     int64_t data_in_struct[16][4];
-    int64_t data_out_struct[8][25];
+    int64_t data_out_struct[8][33];
 };
 
 #define ACCELERATOR_FUNC _IOWR('a', 'b', struct inputstruct *)

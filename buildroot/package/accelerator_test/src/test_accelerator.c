@@ -43,7 +43,7 @@ int main() {
     
     for (int k=0; k<kernel_size; k++) {
     	data.coefficients[k] = (k+1)*(0x3456789382723583);
-    	printf("Filter set nr %d uploaded \n", k+1);
+    	printf("Filter set nr %d uploaded: %llx \n", k+1, data.coefficients[k]);
     }
     
     for (int i=0; i<data.n_input_channels; i++) {

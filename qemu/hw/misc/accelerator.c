@@ -247,14 +247,14 @@ static void accelerator_instance_init(Object *obj) {
     state->finished = 0xFF00;
     state->n_in_channels = 0x004;
 
-    state->coefficients[0] = 0x12345678;
-    state->coefficients[1] = 0x1AB77D93;
-    state->coefficients[2] = 0xDEADBEEF;
-    state->coefficients[3] = 0x569387FF;
-    state->coefficients[4] = 0xAAAABBBB;
-    state->coefficients[5] = 0x99374481;
-    state->coefficients[6] = 0xB1135C65;
-    state->coefficients[7] = 0x66968EED;
+    state->coefficients[0] = 0x123456789ABCDEFA;
+    state->coefficients[1] = 0x1AB77D9333556325;
+    state->coefficients[2] = 0xDEADBEEF47027593;
+    state->coefficients[3] = 0x569387FF26284732;
+    state->coefficients[4] = 0xAAAABBBB39876BBB;
+    state->coefficients[5] = 0x9937448123757483;
+    state->coefficients[6] = 0xB1135C65DDCCCCAF;
+    state->coefficients[7] = 0x66968EED667D334A;
 
     for (int i=0; i<max_in_channels; i++) {
         for (int j=0; j<max_in_wordspackage_per_channel; j++) {

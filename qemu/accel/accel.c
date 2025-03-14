@@ -21,7 +21,7 @@ void convolution_8_per_n_ch_in(uint64_t data[max_in_channels][max_in_wordspackag
     //decode of the input coefficients
     //first (LSBs) 4 bits = 1B are the first coefficient 
     for (int i=0; i<kernel_size; i++) {
-        coeff[i] = ((coefficients << (64-4*(i+1))) >> 60);
+        coeff[i] = ((coefficients << (64-8*(i+1))) >> 56);
     }
 
     uint64_t partial_sum;
@@ -32,7 +32,7 @@ void convolution_8_per_n_ch_in(uint64_t data[max_in_channels][max_in_wordspackag
     for (int j=0; j<seq_length; j++) {
         for (int i=0; i<n_input_channels; i++) {
             for (int k=0; k<in_words_per_transaction; k++) {
-                data_in[k][i][j] = ((data[i][j] << (64-4*(k+1))) >> 60);
+                data_in[k][i][j] = ((data[i][j] << (64-8*(k+1))) >> 56);
             }
         }
     }
